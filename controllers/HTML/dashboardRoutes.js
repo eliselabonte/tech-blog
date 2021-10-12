@@ -13,8 +13,7 @@ router.get('/', withAuth, async(req, res) => {
             attributes: { exclude: ['password'] },
             include: [{ model: Post }],
         });
-        console.log('HEY!!!', userData)
-            // need to add in comments
+        // need to add in comments
 
         const user = userData.get({ plain: true });
 
@@ -34,10 +33,7 @@ router.get('/create', withAuth, async(req, res) => {
             attributes: { exclude: ['password'] },
             include: [{ model: Post }],
         });
-
-        console.log(req.session.user_id)
         const user = userData.get({ plain: true });
-        console.log(user)
 
         res.render('create', {
             ...user,

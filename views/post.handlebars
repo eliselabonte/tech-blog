@@ -9,8 +9,17 @@
         <p>
             {{post.post_body}}
         </p>
-        <p>
+        {{#if comments.length}}
+        <p class="comments">
             {{post.comment.text}}
         </p>
+        {{/if}}
+        <form>
+            <label for='leaveComment'>Leave a comment</label>
+            <textarea class="form-input" id="leaveComment" name="leaveComment"></textarea>
+            <button type='submit' id='submitComment'></button>
+        </form>
     </div>
 </div>
+
+<script src='../public/js/create.js'></script>

@@ -10,10 +10,19 @@
   <div class="col-md-7">
     <p>
       {{post.post_body}}
-    </p>
-    <p>
-      {{post.comment.text}}
-    </p>
+    </p>{{#if comments.length}}
+        <p class="comments">
+            {{post.comment.text}}
+        </p>
+        {{/if}}
+        <form>
+            <label for='leaveComment'></label>
+            <textarea class="form-input" id="leaveComment" name="leaveComment"></textarea>
+            <button type='submit' id='submitComment'>comment</button>
+        </form>
   </div>
 </div>
 {{/each}}
+
+
+<script src='../public/js/newComment.js'></script>
