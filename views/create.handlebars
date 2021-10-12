@@ -1,0 +1,26 @@
+<section class="d-flex justify-content-center row">
+    <div class="col-auto">
+        <h2 class="pt-4 font-monospace">Welcome, {{username}}!</h2>
+    </div>
+</section>
+
+<section class="ps-4 pt-5">
+    <h3 class="text-center pb-2 font-monospace">Write a blog post</h3>
+    <form class="d-flex flex-wrap justify-content-evenly form newPost" id="newPostForm">
+        <div class="p-3 form-group">
+            <label for="title">Title</label>
+            <textarea class="form-input" id="title" name="title" required></textarea>
+        </div>
+        <div class="p-3 form-group">
+            <label for="postBody">Body</label>
+            <textarea class="form-input" id="postBody" name="postBody" required></textarea>
+        </div>
+        <div class="p-3 pb-5 form-group">
+            <button type="submit" class="btn btn-primary">Post!</button>
+        </div>
+    </form>
+    </div>
+
+</section>
+
+<script src="../public/js/create.js"></script>
