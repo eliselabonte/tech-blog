@@ -5,14 +5,13 @@ const withAuth = require('../../utils/auth');
 // Use withAuth middleware to prevent access to route
 router.get('/', withAuth, async(req, res) => {
     try {
-        // for dev!!
-        req.session.user_id = 3;
-
+        // console.log('HEY!!!!!!!!!', req.session.user_id)
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Post }],
         });
+        // console.log("USER DATA", userData)
         // need to add in comments
 
         const user = userData.get({ plain: true });

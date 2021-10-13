@@ -5,6 +5,7 @@ const withAuth = (req, res, next) => {
     } else {
         next();
     }
+    // req.session.user_id = 7;
 };
 
 module.exports = withAuth;
