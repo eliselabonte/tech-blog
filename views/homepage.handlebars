@@ -10,16 +10,21 @@
   <div class="col-md-7">
     <p>
       {{post.post_body}}
-    </p>{{#if comments.length}}
+    </p>
+    {{#if logged_in}}
+      {{#if comments.length}}
         <p class="comments">
-            {{post.comment.text}}
+          {{post.comment.text}}
         </p>
-        {{/if}}
-        <form>
-            <label for='leaveComment'></label>
-            <textarea class="form-input" id="leaveComment" name="leaveComment"></textarea>
-            <button type='submit' id='submitComment'>comment</button>
-        </form>
+      {{/if}}
+      <form>
+        <label for='leaveComment'></label>
+        <textarea class="form-input" id="leaveComment" name="leaveComment"></textarea>
+        <button type='submit' id='submitComment'>comment</button>
+      </form>
+      {{else}}
+        <p>Please <a href='/login'>log in</a> to view and add comments.</p>
+    {{/if}}
   </div>
 </div>
 {{/each}}

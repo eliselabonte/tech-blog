@@ -7,6 +7,9 @@
   <title>techTalk</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  {{!-- jQuery --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,6 +23,7 @@
         <a href="/">Home</a> |
         <a href="/dashboard">Dashboard</a> |
         {{#if logged_in}}
+        <a href='/dashboard/create'>Post</a> |
         <button class="no-button" id="logout">Log Out</button>
         {{else}}
         <a href="/login">Log In</a>
