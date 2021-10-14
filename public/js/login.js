@@ -11,7 +11,6 @@ const loginFormHandler = async(event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        // console.log(email, password)
 
         if (response.ok) {
             // If successful, redirect the browser to the create page
