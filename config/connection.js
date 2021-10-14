@@ -4,8 +4,8 @@ const environment = process.env;
 
 let sequelize;
 
-if (environment.JAWSDB_URL) {
-    sequelize = new Sequelize(environment.JAWSDB_URL);
+if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
     sequelize = new Sequelize(
         environment.DB_NAME,
