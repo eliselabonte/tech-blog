@@ -17,27 +17,11 @@ const newFormHandler = async(event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to create prost');
+            alert('Failed to create post');
         }
     }
 };
 
-const delButtonHandler = async(event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
-
-        const response = await fetch(`/api/posts/${id}`, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-            console.log('post deleted')
-        } else {
-            alert('Failed to delete project');
-        }
-    }
-};
 
 document
     .querySelector('#newPostForm')

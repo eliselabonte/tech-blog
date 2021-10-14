@@ -39,21 +39,31 @@ router.get('/posts/:id', async(req, res) => {
 
         if (postData) {
 
-            const commentData = await Comment.findAll({
-                where: { 'post_id': req.params.id },
-                include: [{
-                    model: User,
-                    attributes: ['username']
-                }, ],
-            });
+            //     const commentData = await Comment.findAll({
+            //         where: { 'post_id': req.params.id },
+            //         include: [{
+            //             model: User,
+            //             attributes: ['username']
+            //         }, ],
+            //     });
 
             const post = postData.get({ plain: true });
 
-            // const comments = (commentData[0].text, commentData[0].user_id);
+            const belongsToUser = () => {
+                    const currentUser = req.session.user_id;
+                    const postUser = post.user_id;
+                    if (currentUser === postUser) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                // const comments = (commentData[0].text, commentData[0].user_id);
 
             res.render('post', {
                 post,
                 // comments,
+                belongsToUser,
                 logged_in: req.session.logged_in
             });
         } else {

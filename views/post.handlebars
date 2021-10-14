@@ -1,5 +1,8 @@
 <div class="row mb-4 post">
     <div class="col-md-5">
+        {{#if belongsToUser}}
+            <button type="button" id='editPost' data-id='{{post.id}}'>Edit this post</button>
+        {{/if}}
         <h2>
             {{post.title}}
         </h2>
@@ -11,15 +14,15 @@
         </p>
         {{#if comments.length}}
         <p class="comments">
-            {{post.comment.text}}
+            {{comment.text}}
         </p>
         {{/if}}
         <form>
             <label for='leaveComment'>Leave a comment</label>
             <textarea class="form-input" id="leaveComment" name="leaveComment"></textarea>
-            <button type='submit' id='submitComment'></button>
+            <button type='submit' id='submitComment'>Reply</button>
         </form>
     </div>
 </div>
 
-<script src='../public/js/create.js'></script>
+<script src='/js/post.js'></script>

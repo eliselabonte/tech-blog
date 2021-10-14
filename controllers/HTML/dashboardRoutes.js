@@ -43,4 +43,22 @@ router.get('/create', withAuth, async(req, res) => {
     }
 });
 
+router.get('/edit/:id', withAuth, async(req, res) => {
+    try {
+        // Find the logged in user based on the session ID
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }],
+        });
+        const post = postData.get({ plain: true });
+        console.log('POST!!!!!!!!!', post)
+
+        res.render('edit', {
+            post,
+            logged_in: true,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;
