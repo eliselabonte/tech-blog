@@ -50,7 +50,6 @@ router.get('/edit/:id', withAuth, async(req, res) => {
             include: [{ model: User }],
         });
         const post = postData.get({ plain: true });
-        console.log('POST!!!!!!!!!', post)
 
         res.render('edit', {
             post,

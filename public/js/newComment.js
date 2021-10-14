@@ -1,30 +1,29 @@
-const newFormHandler = async(event) => {
+const newCommentHandler = async(event) => {
     event.preventDefault();
-    const form = $('.newPost').serialize()
-    const data = new FormData(document.getElementById('newPostForm'))
-    const title = $('#title').val().trim();
-    const postBody = $('#postBody').val().trim();
 
-    // const category = $('#category').find(":selected").val().trim();
-    if (title && postBody) {
-        const user_id = req.session.user_id;
-        const response = await fetch(`/api/posts`, {
+    const text = document.querySelector('#comment_text').value.trim();
+
+    const userId = event.target.getAttribute('data-id');
+
+    const postId = event.target.getAttribute('data-post');
+
+    if (text) {
+        const response = await fetch(`/api/comments`, {
             method: 'POST',
-            body: JSON.stringify({ title, postBody, user_id }),
+            body: JSON.stringify({ text, post_id: `${postId}`, user_id: `${userId}` }),
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: new FormData(document.getElementById('post_body'))
         });
 
         if (response.ok) {
-            document.location.replace('/create');
+            document.location.replace(`/posts/${postId}`);
         } else {
-            alert('Failed to create report');
+            alert('Failed to comment');
         }
     }
 };
 
 document
-    .querySelector('.new-sighting-form')
-    .addEventListener('submit', newFormHandler);
+    .querySelector('#leaveComment')
+    .addEventListener('submit', newCommentHandler)
