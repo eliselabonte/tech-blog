@@ -12,9 +12,9 @@
       This is a blog-style site for users to discuss technology and coding related topics.
 
   ## Installation:
-    * Deployed Url 
+    * Deployed Url: https://quiet-castle-97310.herokuapp.com/
 
-    * Github Repository 
+    * Github Repository: https://github.com/eliselabonte/tech-blog
 
   ## Usage:
       Talk with other code-focused folks about all things programming. Socialize, blog, and connect.
