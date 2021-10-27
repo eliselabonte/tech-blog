@@ -1,5 +1,7 @@
 # tech-blog
 
+![tech blog screenshot](./tech-screenshot.png)
+
   ## Table of Contents
 
   * [Description](#Description)
